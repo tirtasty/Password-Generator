@@ -32,7 +32,7 @@ header {
 
 .card {
   background-color: hsl(0, 0%, 100%);
-  border-radius: 5px;
+  border-radius: 15px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
   color: hsl(206, 17%, 28%);
@@ -40,6 +40,12 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+}
+
+.card-header h2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-header::after {
@@ -75,7 +81,7 @@ header {
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
-  border-radius: 25px;
+  border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
   color: hsl(0, 0%, 100%);
@@ -86,6 +92,13 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  transition: .4s ease-in-out;
+}
+
+.btn:hover{
+  background-color: rgb(138, 138, 138);
+  color: black;
+
 }
 
 button[disabled] {
