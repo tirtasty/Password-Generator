@@ -7,6 +7,8 @@ var lowerCase = Array.from("abcdefghijklmnopqrstuvwxyz");
 var upperCase = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 var numeric = Array.from("1234567890");
 var symbol = Array.from(".,<>/?;:[{]}\|=+-_)(*&^%$#@!~`");
+var storePassword = [];
+var generatePassword = "";
 
 //RANDOM FUNCTION
 function randomLower(){
@@ -21,26 +23,46 @@ function randomNumber(){
 function randomSymbol(){
   return symbol[Math.floor(Math.random() * symbol.length)];
 }
+// CHECK IF FUNCTION IS WORKING
+console.log(randomLower);
+console.log(randomUpper);
+console.log(randomSymbol);
+console.log(randomNumber);
 
 //CHECKLIST
 
-function optionChar(){
-  var askCharacter = window.prompt("Please, input charcter between 8 - 128");
+var askCharacter = window.prompt("Please, input charcter between 8 - 128");
   if (askCharacter < 8){
     window.alert("Minimum Character is 8 !");
   }
   else if (askCharacter > 128){
     window.alert("Maximum Character is 128 !");
   }
-  var askLower = window.confirm("Include lowercase letter?");
-  var askUpper = window.confirm("Include uppercase letter?");
-  var askSymbol = window.confirm("Include symbol?");
-  var askNumber = window.confirm("Include number?");
+//CHECK THE VALUE EITHER STRING OR NUMBER
+console.log("Value", askCharacter)
+
+var askLower = window.confirm("Include lowercase letter?");
+var askUpper = window.confirm("Include uppercase letter?");
+var askSymbol = window.confirm("Include symbol?");
+var askNumber = window.confirm("Include number?");
+
+//FILTER FOR PASSWORD
+if (askLower === true){
+  storePassword = storePassword.concat(randomLower())
 }
+if (askUpper === true){
+  storePassword = storePassword.concat(randomUpper())
+}
+if (askNumber === true){
+  storePassword = storePassword.concat(randomNumber())
+}
+if (askSymbol === true){
+  storePassword = storePassword.concat(randomSymbol())
+}
+//CONCAT FILTER CHECKING
+console.log(storePassword);
 
-optionChar();
-
-
+//LOOPING TO GET PASSWORD
 
 
 // Write password to the #password input
