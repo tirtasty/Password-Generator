@@ -8,7 +8,7 @@ var upperCase = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 var numeric = Array.from("1234567890");
 var symbol = Array.from(".,<>/?;:[{]}\|=+-_)(*&^%$#@!~`");
 var storePassword = [];
-var generatePass = "";
+
 
 //RANDOM FUNCTION
 function randomLower(){
@@ -26,10 +26,10 @@ function randomSymbol(){
 
 //OBJECT RANDOM
 var randomFunc = {
-  lower: randomNumber,
-  upper: randomUpper,
-  symbol: randomSymbol,
-  number: randomNumber
+  lower: randomLower(),
+  upper: randomUpper(),
+  symbol: randomSymbol(),
+  number: randomNumber()
 };
 
 // CHECK IF FUNCTION IS WORKING
@@ -40,13 +40,11 @@ console.log(randomNumber());
 
 //CHECKLIST
 
-var characterAmount = window.prompt("Please, input charcter between 8 - 128");
-  if (characterAmount < 8){
-    window.alert("Minimum Character is 8 !");
-  }
-  else if (characterAmount > 128){
-    window.alert("Maximum Character is 128 !");
-  }
+var characterAmount = window.prompt("Please, input character between 8 - 128");
+  if (characterAmount < 8 || characterAmount > 128 ){
+    window.alert("Number in Invalid");
+    characterAmount = 8;
+  };
 //CHECK THE VALUE EITHER STRING OR NUMBER
 console.log("value" , characterAmount)
 
@@ -54,8 +52,6 @@ var askLower = window.confirm("Include lowercase letter?");
 var askUpper = window.confirm("Include uppercase letter?");
 var askSymbol = window.confirm("Include symbol?");
 var askNumber = window.confirm("Include number?");
-
-
 
 //FILTER FOR PASSWORD
 if (askLower === true){
@@ -70,25 +66,35 @@ if (askNumber === true){
 if (askSymbol === true){
   storePassword = storePassword.concat(randomSymbol())
 }
-//ARRAY OPTION
+
+
+//ARRAY OF OPTION
+var arrayQuestion = [{askLower}, {askUpper}, {askNumber}, {askSymbol}].filter
+(
+  item => Object.values(item)[0]
+)
+console.log(arrayQuestion);
+
+
+
 //CONCAT FILTER CHECKING
 console.log(storePassword);
 
-
 //LOOPING TO GET PASSWORD
-var counting = function(){
-  for (i = 0; i < characterAmount ; i++){
-    console.log("value" , characterAmount)
-  }
-}
+for (var i = 0; i < characterAmount ; i += optionCount){
+  arrayQuestion.forEach(type => {
+    var random = Object.keys(type)[0];
+    console.log('random:', random);
 
-counting();
+    generatePass += randomFunc[random];
+  });
+  }
 
 
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  generatePassword()
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
