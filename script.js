@@ -67,6 +67,9 @@ if (askSymbol === true){
   storePassword = storePassword.concat(symbol)
 }
 
+//CONCAT FILTER CHECKING
+console.log(storePassword);
+
 
 //ARRAY OF OPTION
 var arrayQuestion = {
@@ -79,22 +82,12 @@ var arrayQuestion = {
 console.log(arrayQuestion);
 
 
-
-//CONCAT FILTER CHECKING
-console.log(storePassword);
-
 //LOOPING TO GET PASSWORD
 for (var i = 0; i < characterAmount ; i ++){
   var generatePass = "";
   var random = storePassword[Math.floor(Math.random())]
   console.log("store :", storePassword)
-
-
-
 }
-
-
-
 
 // Write password to the #password input
 function writePassword() {
