@@ -8,6 +8,7 @@ var upperCase = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 var numeric = Array.from("1234567890");
 var symbol = Array.from(".,<>/?;:[{]}\|=+-_)(*&^%$#@!~`");
 var storePassword = [];
+var storePassword = storePassword.concat(lowerCase)
 
 
 //RANDOM FUNCTION
@@ -82,16 +83,24 @@ var arrayQuestion = {
 console.log(arrayQuestion);
 
 
+
+var generatePass = [];
+var result = generatePass.join('')
+console.log("result:", result)
 //LOOPING TO GET PASSWORD
 for (var i = 0; i < characterAmount ; i ++){
-  var generatePass = "";
-  var random = storePassword[Math.floor(Math.random())]
+  
+  var random = storePassword[Math.floor(Math.random() * storePassword.length)]
+  generatePass.push(random)
+  
   console.log("store :", random)
 }
+console.log(generatePass.join(''))
+
 
 // Write password to the #password input
 function writePassword() {
-  generatePassword()
+  var password = generatePass.join('')
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
