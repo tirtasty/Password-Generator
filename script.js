@@ -86,7 +86,7 @@ console.log(arrayQuestion);
 for (var i = 0; i < characterAmount ; i ++){
   var generatePass = "";
   var random = storePassword[Math.floor(Math.random())]
-  console.log("store :", storePassword)
+  console.log("store :", random)
 }
 
 // Write password to the #password input
