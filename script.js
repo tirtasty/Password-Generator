@@ -42,7 +42,7 @@ console.log(randomNumber());
 
 var characterAmount = window.prompt("Please, input character between 8 - 128");
   if (characterAmount < 8 || characterAmount > 128 ){
-    window.alert("Number in Invalid");
+    window.alert("Number is Invalid");
     characterAmount = 8;
   };
 //CHECK THE VALUE EITHER STRING OR NUMBER
@@ -55,24 +55,27 @@ var askNumber = window.confirm("Include number?");
 
 //FILTER FOR PASSWORD
 if (askLower === true){
-  storePassword = storePassword.concat(randomLower())
+  storePassword = storePassword.concat(lowerCase)
 }
 if (askUpper === true){
-  storePassword = storePassword.concat(randomUpper())
+  storePassword = storePassword.concat(upperCase)
 }
 if (askNumber === true){
-  storePassword = storePassword.concat(randomNumber())
+  storePassword = storePassword.concat(numeric)
 }
 if (askSymbol === true){
-  storePassword = storePassword.concat(randomSymbol())
+  storePassword = storePassword.concat(symbol)
 }
 
 
 //ARRAY OF OPTION
-var arrayQuestion = [{askLower}, {askUpper}, {askNumber}, {askSymbol}].filter
-(
-  item => Object.values(item)[0]
-)
+var arrayQuestion = {
+  askLower:askLower,
+  askUpper:askUpper,
+  askNumber:askNumber,
+  askSymbol:askSymbol
+
+}
 console.log(arrayQuestion);
 
 
@@ -81,14 +84,15 @@ console.log(arrayQuestion);
 console.log(storePassword);
 
 //LOOPING TO GET PASSWORD
-for (var i = 0; i < characterAmount ; i += optionCount){
-  arrayQuestion.forEach(type => {
-    var random = Object.keys(type)[0];
-    console.log('random:', random);
+for (var i = 0; i < characterAmount ; i ++){
+  var generatePass = "";
+  var random = storePassword[Math.floor(Math.random())]
+  console.log("store :", storePassword)
 
-    generatePass += randomFunc[random];
-  });
-  }
+
+
+}
+
 
 
 
