@@ -45,8 +45,8 @@ https://github.com/tirtasty/Password-Generator.git
 ![Generate Button](./images/generateButton.PNG)
 ![The result](./images/result.PNG)
 
-** The whole page will be look like this if you keep scrolling around.
-![Whole page of the webpage](./images/webpage.gif)
+** This the demo how the app will works
+![Demo of the apps work](./images/appDemo.gif)
 
 ---
 ## Contributors
